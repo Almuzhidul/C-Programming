@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    // Daftar nama yang tersedia
+    char daftar_nama[5][20] = {"Ali", "Budi", "Citra", "Dina", "Eka"};
+    char nama_dicari[20];
+    int ditemukan = 0;
+
+    printf("=== Program Pencarian Nama ===\n\n");
+    printf("Daftar nama: \n");
+    for (int i = 0; i < 5; i++) {
+        printf("- %s\n", daftar_nama[i]);
+    }
+
+    // Meminta pengguna memasukkan nama yang ingin dicari
+    printf("\nMasukkan nama yang ingin dicari: ");
+    scanf("%s", nama_dicari);
+
+    // Mencari nama dalam daftar
+    for (int i = 0; i < 5; i++) {
+        if (strcmp(daftar_nama[i], nama_dicari) == 0) {
+            printf("\nNama '%s' ditemukan di posisi ke-%d dalam daftar.\n", nama_dicari, i + 1);
+            ditemukan = 1;
+            break;
+        }
+    }
+
+    // Jika nama tidak ditemukan
+    if (!ditemukan) {
+        printf("\nNama '%s' tidak ditemukan dalam daftar.\n", nama_dicari);
+    }
+
+    return 0;
+}
